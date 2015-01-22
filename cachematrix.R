@@ -76,21 +76,32 @@ cacheSolve <- function (m, ... ) {
         mi
 }
 
-#Check functions
+#CHECK TO SEE IF IT's WORKING
+
+# Create a matrix
 a<-matrix(1:4,2,2)
 a
+
+# Create the cached matrix mat using a
 mat<-makeCacheMatrix(a)
+# Show the stored matrix
 mat$get()
+# Invert the matrix using the solve function
 cacheSolve(mat)
 
-#run it again to see it is getting the cache
+# Run it again to see it is getting the caches result
 cacheSolve(mat)
 
+# Create a different matrix
 b<-matrix(2:5, 2,2)
 b
+# Store the new matrix in mat
 mat$set(b)
+# Check to see it is stored
 mat$get()
 
+# Run the Solve function to get the inverse, the matrix has changes to it will re-calculate
 cacheSolve(mat)
 
+# Run Solve again to see that it is getting the cached result
 cacheSolve(mat)
